@@ -102,7 +102,7 @@ void I2C1_Send(char saddr, int n, char* str) {
 	I2C1_CR1 |= (1<<8);
 	while(!(I2C1_SR1 & (1<<0))) {}
 
-	/*Send slave address + write (0) bit and wait for 500 milliseconds*/
+	/*Send slave address + write (0) bit and wait for ACK*/
 	I2C1_DR = (saddr<<1);
 	while(!(I2C1_SR1 & (1<<1))) {}
 
